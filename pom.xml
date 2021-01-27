@@ -59,8 +59,8 @@
 							<!-- <nodeVersion>v14.15.4</nodeVersion>
 							<npmVersion>6.14.10</npmVersion> -->
 							<!-- 최호진 -->
-							 <nodeVersion>v13.14.0</nodeVersion>
-							<npmVersion>6.14.4</npmVersion> 
+							 <!-- <nodeVersion>v13.14.0</nodeVersion>
+							<npmVersion>6.14.4</npmVersion>  -->
 							<!-- 서버 -->
 							<!-- <nodeVersion>..</nodeVersion>
 							<npmVersion>..</npmVersion> -->
