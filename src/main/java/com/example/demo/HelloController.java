@@ -8,6 +8,6 @@ import java.util.Date;
 public class HelloController {
 	@GetMapping("/api/hello")
 	public String hello(){
-		return "testbr 현재 서버시간은 " + new Date() +"입니다. \n";
+		return "testsm 현재 서버시간은 " + new Date() +"입니다. \n";
 	}
 }
