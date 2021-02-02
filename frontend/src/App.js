@@ -1,27 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LandingPage from "./Components/LandingPage";
+import StudentPage from "./Components/views/Student/StudentPage";
+import NotificationPage from "./Components/views/Notification/NotificationPage";
+import CalendarPage from "./Components/views/CalendarPage/CalendarPage";
 
 function App() {
   const [message, setMessage] = useState("");
+
   useEffect(() => {
-    fetch('/api/hello')
-      .then(response => response.text())
-      .then(message => {
+    fetch("/api/hello")
+      .then((response) => response.text())
+      .then((message) => {
         setMessage(message);
       });
-  }, [])
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">{message}</h1>
-      </header>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </div>
-  )
+    <Router>
+      <Switch>
+        <Route path="/" exact component={LandingPage} />
+        <Route path="/student" component={StudentPage} />
+        <Route path="/noty" component={NotificationPage} />
+        <Route path="/calendar" component={CalendarPage} />
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
