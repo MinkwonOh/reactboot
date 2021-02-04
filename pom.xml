@@ -28,6 +28,20 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+		<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>	
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -53,11 +67,11 @@
 						<!-- 로컬에 설치된  NODE,NPM 버전 입력 --> 
 						<configuration>
 							<!-- 김승민 -->
-							<nodeVersion>v12.18.2</nodeVersion>
-							<npmVersion>6.14.5</npmVersion>
+							<!-- <nodeVersion>v12.18.2</nodeVersion>
+							<npmVersion>6.14.5</npmVersion> -->
 							<!-- 오민권 -->
-							<!-- <nodeVersion>v14.15.4</nodeVersion>
-							<npmVersion>6.14.10</npmVersion> -->
+							<nodeVersion>v14.15.4</nodeVersion>
+							<npmVersion>6.14.10</npmVersion>
 							<!-- 최호진 -->
 							 <!-- <nodeVersion>v13.14.0</nodeVersion>
 							<npmVersion>6.14.4</npmVersion>  -->
