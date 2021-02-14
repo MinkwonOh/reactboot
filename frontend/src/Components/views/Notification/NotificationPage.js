@@ -1,4 +1,4 @@
-import { Layout, Pagination, Table } from "antd";
+import { Layout, Table } from "antd";
 
 import "./NotificationPage.css";
 
@@ -6,44 +6,44 @@ import SideMenu from "../Comm/SideMenu/SideMenu";
 import HeaderArea from "../Comm/HeaderArea/HeaderArea";
 import ContentTitle from "../Comm/Contents/ContentTitle";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import axios from "axios";
 
 const { Content, Footer, Sider } = Layout;
 
 export default function StudentPage() {
+  //사이드 메뉴 바 접고 펴기 위한 state (고정)
   const [Collapsed, setCollapsed] = useState(false);
 
-  const [Contents, setContents] = useState([
-    { num: 1, noti: "공지1" },
-    { num: 2, noti: "공지2" },
-    { num: 3, noti: "공지3" },
-    { num: 4, noti: "공지4" },
-    { num: 5, noti: "공지5" },
-    { num: 6, noti: "공지6" },
-    { num: 7, noti: "공지7" },
-    { num: 8, noti: "공지8" },
-    { num: 9, noti: "공지9" },
-    { num: 10, noti: "공지10" },
-    { num: 11, noti: "공지11" },
-    { num: 12, noti: "공지12" },
-    { num: 13, noti: "공지13" },
-    { num: 14, noti: "공지14" },
-    { num: 15, noti: "공지15" },
-    { num: 16, noti: "공지16" },
-    { num: 17, noti: "공지17" },
-    { num: 18, noti: "공지18" },
-    { num: 19, noti: "공지19" },
-    { num: 20, noti: "공지20" },
-  ]);
-  const columns = [
-    { title: "num", dataIndex: "num", key: "num" },
-    { title: "공지", dataIndex: "noti", key: "noti" },
-  ];
-
+  //사이드 메뉴 바 접고 펴기 위한 함수 (고정)
   const onCollapsed = (Collapsed) => {
-    console.log(Collapsed);
     setCollapsed(!Collapsed);
   };
+
+  //DB에서 가져온 데이터 배열을 위한 state
+  const [Contents, setContents] = useState([]);
+  //테이블의 첫번째 컬럼 메뉴
+  const columns = [
+    { title: "idx", dataIndex: "idx", key: "idx" },
+    { title: "작성자", dataIndex: "writer", key: "writer" },
+    { title: "제목", dataIndex: "title", key: "title" },
+    { title: "내용", dataIndex: "content", key: "content" },
+    { title: "작성일", dataIndex: "parsed_date", key: "parsed_date" },
+  ];
+
+  //페이지가 로드 될때마다 axios로 백에 통신
+  useEffect(() => {
+    axios
+      //모든 url 리퀘가 8080포트로 감 나중에 수정 예정
+      .get("/api/noti")
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+        setContents(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <Layout style={{ minHeight: "100vh" }}>

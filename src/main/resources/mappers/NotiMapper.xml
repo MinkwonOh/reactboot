@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.NotiDAO"><!--namespace를 통해 NotiDAO와 연결합니다. -->
+  		
+  <select id="selectNoti" parameterType="com.example.demo.vo.NotiVO" resultType="com.example.demo.vo.NotiVO">
+  <!-- selectNoti()메서드를 호출하면 실행할 SELECT문이며, 
+						NotiVO 객체를 파라미터로 받아, NotiVO객체를 반환합니다.-->
+  	SELECT 
+  		`idx`, `writer`, `title`, `content`, `noti_date`
+    FROM 
+    	Notice
+    ORDER BY
+    	idx desc
+  </select>
+
+</mapper>
