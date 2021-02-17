@@ -10,8 +10,10 @@ import HeaderArea from "./views/Comm/HeaderArea/HeaderArea";
 const { Content, Footer, Sider } = Layout;
 
 function LandingPage() {
+  //사이드 메뉴 바 접고 펴기 위한 state (고정)
   const [Collapsed, setCollapsed] = useState(false);
 
+  //사이드 메뉴 바 접고 펴기 위한 함수 (고정)
   const onCollapsed = (Collapsed) => {
     console.log(Collapsed);
     setCollapsed(!Collapsed);

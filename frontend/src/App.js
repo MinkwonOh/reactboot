@@ -7,16 +7,6 @@ import NotificationPage from "./Components/views/Notification/NotificationPage";
 import CalendarPage from "./Components/views/CalendarPage/CalendarPage";
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("/api/hello")
-      .then((response) => response.text())
-      .then((message) => {
-        setMessage(message);
-      });
-  }, []);
-
   return (
     <Router>
       <Switch>
