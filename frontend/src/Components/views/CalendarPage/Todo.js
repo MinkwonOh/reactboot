@@ -4,37 +4,28 @@ import "./Todo.css";
 import axios from "axios";
 
 function CalendarPage() {
+  //DB에서 가져온 todo
   const [ToDoList, setToDoList] = useState([]);
 
   useState(() => {
+    //back get
     axios
       .get("/api/cal")
       .then((res) => {
-        console.log("testDate", res.data);
+        //가져온 값 쓰기 위해 front state에 [object,...] 형태로 저장
         setToDoList(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
+  //todo 분류하는 함수
   const getListData = (value) => {
-    console.log("listValue", value);
-    // console.log("value.date", value.date());
-    // console.log(
-    //   "year,month,date",
-    //   value.year(),
-    //   value.month() + 1,
-    //   value.date()
-    // );
-
+    //가변형 함수 let 선언
     let listData;
 
+    //todo index별 실행하는 반복문 map
     ToDoList.map((data) => {
-      console.log(data);
-      console.log(data.parsed_toDoDate);
-      console.log(
-        "year,month,date",
-        `${value.year()}-${value.month() + 1}-${value.date()}`
-      );
+      //DB todo 와 front ToDo 비교 후 형태 맞춰서 listdata에 저장
       if (
         data.parsed_toDoDate ==
         `${value.year()}-${
@@ -42,14 +33,15 @@ function CalendarPage() {
         }-${value.date() < 10 ? `0${value.date()}` : value.date()}`
       ) {
         listData = [{ content: data.content, type: data.type }];
-        console.log("listData", listData);
       }
     });
 
     return listData || [];
   };
 
+  //날짜 그리는 함수
   const dateCellRender = (value) => {
+    //todos 분류하는 함수
     const listData = getListData(value);
 
     return (
@@ -63,28 +55,9 @@ function CalendarPage() {
     );
   };
 
-  const getMonthData = (value) => {
-    console.log("monthValue", value);
-    if (value.month() === 8) {
-      return 123123;
-    }
-  };
-
-  const monthCellRender = (value) => {
-    const num = getMonthData(value);
-    return num ? (
-      <div className="notes-month">
-        <section>{num}</section>
-        <span>Backlog number</span>
-      </div>
-    ) : null;
-  };
   return (
     <div>
-      <Calendar
-        dateCellRender={dateCellRender}
-        monthCellRender={monthCellRender}
-      />
+      <Calendar dateCellRender={dateCellRender} />
     </div>
   );
 }
