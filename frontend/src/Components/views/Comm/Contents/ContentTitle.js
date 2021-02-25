@@ -20,7 +20,12 @@ function ContentTitle() {
       case "/calendar":
         setTitle("일정");
         break;
-
+      case "/login":
+        setTitle("로그인");
+        break;
+      case "/qna":
+        setTitle("문의");
+        break;
       default:
         break;
     }
