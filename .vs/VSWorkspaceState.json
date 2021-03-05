@@ -1,0 +1,18 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\Components",
+    "\\frontend\\src\\Components\\views",
+    "\\frontend\\src\\Components\\views\\CalendarPage",
+    "\\frontend\\src\\Components\\views\\Login",
+    "\\frontend\\src\\resource",
+    "\\frontend\\src\\resource\\img",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\resources"
+  ],
+  "SelectedNode": "\\frontend\\src\\Components\\views\\Login\\LoginPage.js",
+  "PreviewInSolutionExplorer": false
+}
