@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.NotiDAO;
 import com.example.demo.dao.ToDoDAO;
+import com.example.demo.dao.LoginDAO;
+
 import com.example.demo.vo.NotiVO;
 import com.example.demo.vo.ToDoVO;
+import com.example.demo.vo.LoginVO;
 
 @RestController
 @MapperScan(basePackages = "com.example.demo.dao")
@@ -23,6 +26,8 @@ public class HelloController {
 	private NotiDAO notiDAO;
 	@Autowired
 	private ToDoDAO todoDAO;
+	@Autowired
+	private LoginDAO loginDAO;
 	
 	@RequestMapping(value="noti",method=RequestMethod.GET)
 	public List<NotiVO> selectNoti() throws Exception {
@@ -63,6 +68,20 @@ public class HelloController {
 		}
 		
 		return toDoList;
+	}
+
+	@RequestMapping(value="login",method=RequestMethod.POST)
+	public LoginVO loginTest(LoginVO param) throws Exception {
+		LoginVO loginExists = loginDAO.selectLogin(param);
+
+		/*
+		if(loginExists != null){
+			return true;
+		}else{
+			return false;
+		}*/
+
+		return loginExists;
 	}
 	
 }

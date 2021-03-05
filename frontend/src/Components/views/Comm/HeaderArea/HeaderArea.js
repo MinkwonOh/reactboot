@@ -9,14 +9,14 @@ export default function HeaderArea() {
       >
         <fragment>
             <div>
-                <h6
+                <h4
                     style={{ padding: 0, textAlign: "right" }}>
                     <a href="../login">로그인</a>
                     <Divider type="vertical" />
                     공지사항
                     <Divider type="vertical" />
                     <a href="../qna">문의</a>
-                </h6>
+                </h4>
             </div>
             <div>
                 <h2
