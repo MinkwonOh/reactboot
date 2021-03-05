@@ -5,6 +5,7 @@ import LandingPage from "./Components/LandingPage";
 import StudentPage from "./Components/views/Student/StudentPage";
 import NotificationPage from "./Components/views/Notification/NotificationPage";
 import CalendarPage from "./Components/views/CalendarPage/CalendarPage";
+import NotiRegistPage from "./Components/views/Notification/NotiRegistPage";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={LandingPage} />
         <Route path="/student" component={StudentPage} />
-        <Route path="/noty" component={NotificationPage} />
+        <Route path="/noti" exact component={NotificationPage} />
+        <Route path="/noti/reg" component={NotiRegistPage} />
         <Route path="/calendar" component={CalendarPage} />
       </Switch>
     </Router>

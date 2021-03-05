@@ -27,7 +27,7 @@ export default function SideMenu() {
         </SubMenu>
         <SubMenu key="sub2" icon={<TeamOutlined />} title="공지사항">
           <Menu.Item key="6">
-            <a href="/noty">공지</a>
+            <a href="/noti">공지</a>
           </Menu.Item>
           <Menu.Item key="8">
             <a href="/calendar">일정</a>

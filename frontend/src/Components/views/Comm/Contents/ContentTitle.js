@@ -6,13 +6,15 @@ function ContentTitle() {
 
   useEffect(() => {
     const title = document.location.pathname;
-    console.log(title);
     switch (title) {
       case "/":
         setTitle("메인페이지");
         break;
-      case "/noty":
+      case "/noti":
         setTitle("공지사항");
+        break;
+      case "/noti/reg":
+        setTitle("공지등록");
         break;
       case "/student":
         setTitle("학생페이지");
